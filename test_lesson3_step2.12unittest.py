@@ -19,6 +19,14 @@ if __name__ == "__main__":
     #amcor test
     sdfvs
     sdfbsdf
+
+
+class TestAbs(unittest.TestCase):
+    def test_abs1(self):
+        self.assertEqual(abs(-42), 42, "Should be absolute value of a number")
+
+    def test_abs2(self):
+        self.assertEqual(abs(-42), -42, "Should be absolute value of a number")
 # In[ ]:
 
 
