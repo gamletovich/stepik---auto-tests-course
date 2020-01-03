@@ -1,6 +1,5 @@
-# stepik---auto-tests-course
+# Stepik Course - Test Automation with Selenium and Python
 
-All tasks for reviewing
+All tasks for reviewing is in the folders
 
-Python automation with Selenium
 https://stepik.org/course/575/syllabus
