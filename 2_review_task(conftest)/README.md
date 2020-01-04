@@ -1,3 +1,3 @@
 # Was checked in PyCharm
 
-Edit Configuration --> Additional Arguments
+Edit Configuration -> Additional Arguments
