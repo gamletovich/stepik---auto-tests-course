@@ -16,7 +16,21 @@ def browser(request):
     browser_name = request.config.getoption("browser_name")
 
     browser = None
-
+    if browser_name == "chrome":
+        print("\nstart chrome browser for test..")
+        options = Options()
+        options.add_experimental_option('prefs', {'intl.accept_languages': language})
+        browser = webdriver.Chrome("D:\\Apps\\Drivers\\chromedriver.exe", options=options)
+    elif browser_name == "opera":
+        print("\nstart opera browser for test..")
+        webdriver_service = service.Service('D:\\Apps\\Drivers\\operadriver.exe')
+        webdriver_service.start()
+        options = webdriver.ChromeOptions()
+        options.add_argument('--lang=' + language)
+        browser = webdriver.Remote(webdriver_service.service_url, webdriver.DesiredCapabilities.OPERA, options=options)
+    else:
+        raise pytest.UsageError("--browser_name should be chrome or opera, "
+                                "language should be in short form (en, uk, ru)")
     yield browser
     print("\nquit browser..")
-    browser.quit()
+    browser.quit( )
