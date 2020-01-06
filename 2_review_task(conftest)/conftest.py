@@ -5,7 +5,7 @@ from selenium.webdriver.chrome import service
 
 
 def pytest_addoption(parser):
-    parser.addoption('--language', action='store', default="ru",
+    parser.addoption('--language', action='store', default="es",
                      help="Add user language: es, fr, ukr, ru, etc.")
     parser.addoption('--browser_name', action='store', default="chrome",
                      help="Choose web browser: chrome or opera")
@@ -25,7 +25,9 @@ def browser(request):
         print("\nstart opera browser for test..")
         webdriver_service = service.Service('D:\\Apps\\Drivers\\operadriver.exe')
         webdriver_service.start()
-        browser = webdriver.Remote(webdriver_service.service_url, webdriver.DesiredCapabilities.OPERA)
+        options = webdriver.ChromeOptions()
+        options.add_argument('--lang=' + language)
+        browser = webdriver.Remote(webdriver_service.service_url, webdriver.DesiredCapabilities.OPERA, options=options)
     else:
         raise pytest.UsageError("--browser_name should be chrome or opera")
 
