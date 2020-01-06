@@ -5,7 +5,7 @@ from selenium.webdriver.chrome import service
 
 
 def pytest_addoption(parser):
-    parser.addoption('--language', action='store', default="es",
+    parser.addoption('--language', action='store', default="en",
                      help="Add user language: es, fr, ukr, ru, etc.")
     parser.addoption('--browser_name', action='store', default="chrome",
                      help="Choose web browser: chrome or opera")
