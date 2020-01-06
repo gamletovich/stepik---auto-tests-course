@@ -29,8 +29,8 @@ def browser(request):
         options.add_argument('--lang=' + language)
         browser = webdriver.Remote(webdriver_service.service_url, webdriver.DesiredCapabilities.OPERA, options=options)
     else:
-        raise pytest.UsageError("--browser_name should be chrome or opera")
-
+        raise pytest.UsageError("--browser_name should be chrome or opera, "
+                                "language should be in short form (en, uk, ru)")
     yield browser
     print("\nquit browser..")
     browser.quit()
