@@ -33,4 +33,4 @@ def browser(request):
                                 "language should be in short form (en, uk, ru)")
     yield browser
     print("\nquit browser..")
-    browser.quit( )
+    browser.quit()
